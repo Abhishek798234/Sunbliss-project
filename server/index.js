@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://purvanchal-sunbliss.vercel.app', 'https://your-vercel-domain.vercel.app']
+    ? ['https://purvanchal-sunbliss.vercel.app', 'https://sunbliss-project.vercel.app']
     : 'http://localhost:8080',
   credentials: true
 }));
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://gainacredb_db_user:3YYgnkLmpupDfD8s@cluster0.a8kyi3q.mongodb.net/?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://gainacredb_db_user:3YYgnkLmpupDfD8s@cluster0.a8kyi3q.mongodb.net/sunbliss?retryWrites=true&w=majority&ssl=true';
 
 let db;
 
