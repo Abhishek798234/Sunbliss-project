@@ -8,36 +8,76 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true
+}));
+
+// Add request logging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 app.use(express.json());
 
-const MONGODB_URI = 'mongodb+srv://gainacredb_db_user:3YYgnkLmpupDfD8s@cluster0.a8kyi3q.mongodb.net/sunbliss';
+const MONGODB_URI = 'mongodb+srv://gainacredb_db_user:3YYgnkLmpupDfD8s@cluster0.a8kyi3q.mongodb.net/?retryWrites=true&w=majority';
 
 let db: any;
 
-MongoClient.connect(MONGODB_URI)
+console.log('Attempting to connect to MongoDB Atlas...');
+MongoClient.connect(MONGODB_URI, {
+  serverSelectionTimeoutMS: 5000,
+  connectTimeoutMS: 10000,
+  tls: true,
+  tlsAllowInvalidCertificates: true,
+  tlsAllowInvalidHostnames: true
+})
   .then(client => {
-    console.log('Connected to MongoDB Atlas');
+    console.log('✅ Connected to MongoDB Atlas');
     db = client.db('sunbliss');
+    return client.db('admin').command({ ping: 1 });
   })
-  .catch(error => console.error('MongoDB connection error:', error));
+  .then(() => {
+    console.log('✅ Database ping successful');
+  })
+  .catch(error => {
+    console.error('❌ MongoDB connection error:', error.message);
+    console.error('Check: 1) Network Access in MongoDB Atlas 2) Correct credentials');
+  });
 
 app.post('/api/inquiry', async (req, res) => {
+  console.log('📝 Received inquiry request:', req.body);
+  
   try {
+    if (!db) {
+      console.log('❌ Database not connected');
+      return res.status(500).json({ success: false, error: 'Database not connected' });
+    }
+    
+    console.log('✅ Database connected, saving inquiry...');
+    
     const inquiryData = {
       ...req.body,
       createdAt: new Date()
     };
     
     const result = await db.collection('inquiries').insertOne(inquiryData);
+    console.log('✅ Inquiry saved with ID:', result.insertedId);
     
     res.json({ success: true, id: result.insertedId });
   } catch (error) {
-    console.error('Error saving inquiry:', error);
+    console.error('❌ Error saving inquiry:', error);
     res.status(500).json({ success: false, error: 'Failed to save inquiry' });
   }
 });
 
+// Test endpoint
+app.get('/test', (req, res) => {
+  console.log('✅ Test endpoint hit');
+  res.json({ message: 'Server is working' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Test the server: http://localhost:${PORT}/test`);
 });

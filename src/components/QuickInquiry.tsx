@@ -28,7 +28,7 @@ export const QuickInquiry = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/inquiry', {
+      const response = await fetch('http://localhost:3001/api/inquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
