@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://purvanchal-sunbliss.vercel.app', 'https://sunbliss-project.vercel.app']
+    ? ['https://sunbliss-project-x94n.vercel.app']
     : 'http://localhost:8080',
   credentials: true
 }));
