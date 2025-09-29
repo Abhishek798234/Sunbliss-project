@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
+import { ExploreResidencesDialog } from "./ExploreResidencesDialog";
 
 interface HeroProps {
   onScheduleVisitClick: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onScheduleVisitClick }) => {
+  const [isExploreDialogOpen, setIsExploreDialogOpen] = useState(false);
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -28,7 +30,12 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleVisitClick }) => {
           FUTURE
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="golden" size="xl" className="font-medium">
+          <Button 
+            variant="golden" 
+            size="xl" 
+            className="font-medium"
+            onClick={() => setIsExploreDialogOpen(true)}
+          >
             Explore Residences
           </Button>
           <Button variant="hero" size="xl" className="font-medium" onClick={onScheduleVisitClick}>
@@ -36,6 +43,11 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleVisitClick }) => {
           </Button>
         </div>
       </div>
+
+      <ExploreResidencesDialog 
+        open={isExploreDialogOpen} 
+        onOpenChange={setIsExploreDialogOpen} 
+      />
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">

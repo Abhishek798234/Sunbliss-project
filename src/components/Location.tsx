@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { MapPin, Car, Building, Plane } from "lucide-react";
+import { LocationMapDialog } from "./LocationMapDialog";
 
 const locationFeatures = [
   {
@@ -25,8 +27,9 @@ const locationFeatures = [
 ];
 
 export const Location = () => {
+  const [isMapDialogOpen, setIsMapDialogOpen] = useState(false);
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="location" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -61,13 +64,18 @@ export const Location = () => {
 
         <div className="mt-12 text-center">
           <Card 
-            className="p-8 bg-gradient-primary text-primary-foreground inline-block cursor-pointer hover:shadow-luxury transition-all duration-300 hover:-translate-y-1"
-            onClick={() => window.open('https://maps.app.goo.gl/C6HVb4JLes8Fat1U6', '_blank')}
+            className="p-8 bg-gradient-golden text-secondary-foreground inline-block cursor-pointer hover:shadow-golden transition-all duration-300 hover:-translate-y-1"
+            onClick={() => setIsMapDialogOpen(true)}
           >
             <h4 className="font-serif text-2xl font-semibold mb-2">LOCATION MAP</h4>
-            
+            <p className="text-sm opacity-90">Click to view detailed location map</p>
           </Card>
         </div>
+
+        <LocationMapDialog 
+          open={isMapDialogOpen} 
+          onOpenChange={setIsMapDialogOpen} 
+        />
       </div>
     </section>
   );

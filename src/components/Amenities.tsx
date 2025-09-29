@@ -66,7 +66,7 @@ export const Amenities = () => {
     setSelectedAmenity(null);
   };
   return (
-    <section className="py-20 bg-gradient-hero text-white">
+    <section id="amenities" className="py-20 bg-gradient-hero text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h3 className="font-serif text-2xl text-secondary italic mb-4">A Sanctuary</h3>

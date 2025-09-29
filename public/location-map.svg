@@ -1,0 +1,52 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Roads -->
+  <path d="M0 300 L800 300" stroke="#666" stroke-width="4" fill="none"/>
+  <path d="M400 0 L400 600" stroke="#666" stroke-width="4" fill="none"/>
+  <path d="M100 150 L700 450" stroke="#888" stroke-width="2" fill="none"/>
+  
+  <!-- Project Location -->
+  <circle cx="400" cy="300" r="20" fill="#d4af37" stroke="#b8860b" stroke-width="3"/>
+  <text x="400" y="340" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#b8860b">
+    Purvanchal SunBliss
+  </text>
+  
+  <!-- Landmarks -->
+  <rect x="150" y="100" width="60" height="40" fill="#4a90e2" rx="5"/>
+  <text x="180" y="125" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Mall</text>
+  
+  <rect x="600" y="200" width="60" height="40" fill="#e74c3c" rx="5"/>
+  <text x="630" y="225" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Hospital</text>
+  
+  <rect x="200" y="450" width="60" height="40" fill="#27ae60" rx="5"/>
+  <text x="230" y="475" text-anchor="middle" font-family="Arial" font-size="10" fill="white">School</text>
+  
+  <rect x="550" y="80" width="60" height="40" fill="#9b59b6" rx="5"/>
+  <text x="580" y="105" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Metro</text>
+  
+  <!-- Highway Labels -->
+  <text x="50" y="295" font-family="Arial" font-size="12" fill="#666">NH-24</text>
+  <text x="405" y="50" font-family="Arial" font-size="12" fill="#666">Yamuna Expressway</text>
+  
+  <!-- Distance Markers -->
+  <line x1="400" y1="300" x2="180" y2="120" stroke="#d4af37" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="290" y="210" font-family="Arial" font-size="10" fill="#d4af37">2.5 km</text>
+  
+  <line x1="400" y1="300" x2="630" y2="220" stroke="#d4af37" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="515" y="260" font-family="Arial" font-size="10" fill="#d4af37">1.8 km</text>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#333">
+    Purvanchal SunBliss - Location Map
+  </text>
+  
+  <!-- Legend -->
+  <rect x="20" y="520" width="200" height="70" fill="white" stroke="#ccc" rx="5"/>
+  <text x="30" y="540" font-family="Arial" font-size="12" font-weight="bold" fill="#333">Legend:</text>
+  <circle cx="35" cy="555" r="5" fill="#d4af37"/>
+  <text x="50" y="560" font-family="Arial" font-size="10" fill="#333">Project Location</text>
+  <rect x="30" y="570" width="10" height="6" fill="#4a90e2"/>
+  <text x="50" y="577" font-family="Arial" font-size="10" fill="#333">Key Landmarks</text>
+</svg>

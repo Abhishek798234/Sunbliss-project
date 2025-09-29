@@ -3,7 +3,7 @@ import lifestyleImage from "@/assets/lifestyle-image.jpg";
 
 export const About = () => {
   return (
-    <section className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}

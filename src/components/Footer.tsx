@@ -19,17 +19,23 @@ export const Footer = () => {
             <h4 className="font-serif text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2">
               {[
-                "About SunBliss",
-                "Unit Configurations", 
-                "Amenities",
-                "Location Advantages",
-                "Payment Plans",
-                "Contact Us"
+                { name: "About SunBliss", id: "about" },
+                { name: "Unit Configurations", id: "hero" }, 
+                { name: "Amenities", id: "amenities" },
+                { name: "Location Advantages", id: "location" },
+                { name: "Payment Plans", id: "contact" },
+                { name: "Contact Us", id: "contact" }
               ].map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                    {link}
-                  </a>
+                  <button 
+                    onClick={() => {
+                      const element = document.getElementById(link.id);
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left"
+                  >
+                    {link.name}
+                  </button>
                 </li>
               ))}
             </ul>
