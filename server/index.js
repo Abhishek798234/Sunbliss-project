@@ -24,15 +24,12 @@ app.use(express.json());
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://gainacredb_db_user:3YYgnkLmpupDfD8s@cluster0.a8kyi3q.mongodb.net/?retryWrites=true&w=majority';
 
-let db: any;
+let db;
 
 console.log('Attempting to connect to MongoDB Atlas...');
 MongoClient.connect(MONGODB_URI, {
-  serverSelectionTimeoutMS: 5000,
-  connectTimeoutMS: 10000,
-  tls: true,
-  tlsAllowInvalidCertificates: true,
-  tlsAllowInvalidHostnames: true
+  serverSelectionTimeoutMS: 30000,
+  connectTimeoutMS: 30000
 })
   .then(client => {
     console.log('✅ Connected to MongoDB Atlas');
@@ -73,6 +70,15 @@ app.post('/api/inquiry', async (req, res) => {
   }
 });
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    database: db ? 'Connected' : 'Disconnected'
+  });
+});
+
 // Test endpoint
 app.get('/test', (req, res) => {
   console.log('✅ Test endpoint hit');
@@ -81,5 +87,5 @@ app.get('/test', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`Test the server: http://localhost:${PORT}/test`);
+  console.log(`Health check: http://localhost:${PORT}/health`);
 });
