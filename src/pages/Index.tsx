@@ -8,6 +8,7 @@ import { Contact } from "@/components/Contact";
 import { QuickInquiry } from "@/components/QuickInquiry";
 import { Footer } from "@/components/Footer";
 import { ScheduleVisitDialog } from "@/components/ScheduleVisitDialog";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 const Index = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -40,6 +41,8 @@ const Index = () => {
         open={isDialogOpen} 
         onOpenChange={setIsDialogOpen} 
       />
+      
+      <WhatsAppFloat />
     </div>
   );
 };
