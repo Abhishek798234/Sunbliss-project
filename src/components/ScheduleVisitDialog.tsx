@@ -33,18 +33,34 @@ export const ScheduleVisitDialog: React.FC<ScheduleVisitDialogProps> = ({ open, 
     }
   });
 
-  const onSubmit = (data: ScheduleVisitForm) => {
-    // Here you would typically send the data to your backend
-    console.log("Schedule visit form data:", data);
-    
-    toast({
-      title: "Request Submitted!",
-      description: "Our expert will get back to you soon.",
-    });
-    
-    // Reset form and close dialog
-    form.reset();
-    onOpenChange(false);
+  const onSubmit = async (data: ScheduleVisitForm) => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/site-visit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Request Submitted!",
+          description: "Our expert will get back to you soon.",
+        });
+        form.reset();
+        onOpenChange(false);
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit request. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (

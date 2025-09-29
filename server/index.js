@@ -70,6 +70,32 @@ app.post('/api/inquiry', async (req, res) => {
   }
 });
 
+app.post('/api/site-visit', async (req, res) => {
+  console.log('📅 Received site visit request:', req.body);
+  
+  try {
+    if (!db) {
+      console.log('❌ Database not connected');
+      return res.status(500).json({ success: false, error: 'Database not connected' });
+    }
+    
+    console.log('✅ Database connected, saving site visit request...');
+    
+    const siteVisitData = {
+      ...req.body,
+      createdAt: new Date()
+    };
+    
+    const result = await db.collection('site_visits').insertOne(siteVisitData);
+    console.log('✅ Site visit request saved with ID:', result.insertedId);
+    
+    res.json({ success: true, id: result.insertedId });
+  } catch (error) {
+    console.error('❌ Error saving site visit request:', error);
+    res.status(500).json({ success: false, error: 'Failed to save site visit request' });
+  }
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ 
