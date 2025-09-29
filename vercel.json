@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/inquiry.ts": {
-      "runtime": "@vercel/node"
-    }
-  }
-}
