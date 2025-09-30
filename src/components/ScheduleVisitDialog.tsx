@@ -47,8 +47,15 @@ export const ScheduleVisitDialog: React.FC<ScheduleVisitDialogProps> = ({ open, 
       if (response.ok) {
         toast({
           title: "Request Submitted!",
-          description: "Our expert will get back to you soon.",
+          description: "Our expert will get back to you soon. Brochure download starting...",
         });
+        
+        // Automatically download brochure
+        const link = document.createElement('a');
+        link.href = '/SunBliss Brochure.pdf';
+        link.download = 'SunBliss Brochure.pdf';
+        link.click();
+        
         form.reset();
         onOpenChange(false);
       } else {

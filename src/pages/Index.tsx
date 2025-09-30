@@ -18,7 +18,7 @@ const Index = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsDialogOpen(true);
-    }, 2000); // Show after 2 seconds
+    }, 0); // Show instantly
 
     return () => clearTimeout(timer);
   }, []);
