@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 
 export const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "918377951951";
+    const phoneNumber = "918376951951";
     const message = "I'm interested in PURVANCHAL SUNBLISS!!!";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
