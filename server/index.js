@@ -19,7 +19,7 @@ app.use(cors({
 }));
 
 // Handle preflight requests
-app.options('*', (req, res) => {
+app.options('/*', (req, res) => {
   res.header('Access-Control-Allow-Origin', req.headers.origin);
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
