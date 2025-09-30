@@ -283,6 +283,4 @@ This project is proprietary and confidential. All rights reserved.
 🤝 Contributing
 This is a private project. For any modifications or updates, please contact the development team.
 
-Built with ❤️ for Purvanchal SunBlissect > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Built with ❤️ for Purvanchal SunBliss
