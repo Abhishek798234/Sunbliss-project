@@ -1,73 +1,288 @@
-# Welcome to your Lovable project
+Purvanchal SunBliss - Luxury Real Estate Website
+A modern, responsive real estate website for Purvanchal SunBliss luxury residential project. Built with React, TypeScript, and Tailwind CSS, featuring a sophisticated design and seamless user experience.
 
-## Project info
+🏡 Live Demo
+Production: https://www.sunblisspurvanchal.co.in
 
-**URL**: https://lovable.dev/projects/8e2f4263-f253-4d16-89bb-2ec2e746ec5a
+Vercel: https://sunbliss-project-x94n.vercel.app
 
-## How can I edit this code?
+✨ Features
+Frontend
+Modern Design: Luxury-focused UI with golden accents and elegant typography
 
-There are several ways of editing your application.
+Responsive Layout: Optimized for all devices (mobile, tablet, desktop)
 
-**Use Lovable**
+Interactive Components:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8e2f4263-f253-4d16-89bb-2ec2e746ec5a) and start prompting.
+Hero section with call-to-action buttons
 
-Changes made via Lovable will be committed automatically to this repo.
+Interactive amenities showcase
 
-**Use your preferred IDE**
+Location map dialog
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Schedule visit form
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Quick inquiry form
 
-Follow these steps:
+Smooth Animations: Hover effects, transitions, and scroll animations
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+WhatsApp Integration: Floating WhatsApp button with pre-typed message
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Backend
+RESTful API: Express.js server with MongoDB integration
 
-# Step 3: Install the necessary dependencies.
-npm i
+Database: MongoDB Atlas for storing inquiries and site visit requests
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+CORS Configuration: Proper cross-origin setup for production domains
+
+Data Collections:
+
+inquiries - Quick inquiry form submissions
+
+site_visits - Schedule visit form submissions
+
+🛠️ Tech Stack
+Frontend
+React 18 - Modern React with hooks
+
+TypeScript - Type-safe development
+
+Vite - Fast build tool and dev server
+
+Tailwind CSS - Utility-first CSS framework
+
+Shadcn/ui - High-quality UI components
+
+React Hook Form - Form handling with validation
+
+Zod - Schema validation
+
+Lucide React - Beautiful icons
+
+Backend
+Node.js - JavaScript runtime
+
+Express.js - Web framework
+
+MongoDB - NoSQL database
+
+MongoDB Atlas - Cloud database service
+
+CORS - Cross-origin resource sharing
+
+Dotenv - Environment variables
+
+Deployment
+Frontend: Vercel (with custom domain)
+
+Backend: Render
+
+Database: MongoDB Atlas
+
+Domain: GoDaddy DNS management
+
+🚀 Getting Started
+Prerequisites
+Node.js 18+
+
+npm or yarn
+
+MongoDB Atlas account
+
+Installation
+Clone the repository
+
+git clone https://github.com/Abhishek798234/Sunbliss-project.git
+cd Sunbliss-project
+
+Copy
+
+Insert at cursor
+bash
+Install dependencies
+
+npm install
+
+Copy
+
+Insert at cursor
+bash
+Set up environment variables
+
+Create .env.local:
+
+VITE_API_URL=http://localhost:3001
+VITE_MONGODB_URI=your_mongodb_connection_string
+
+Copy
+
+Insert at cursor
+env
+Create server/.env:
+
+MONGODB_URI=your_mongodb_connection_string
+NODE_ENV=development
+
+Copy
+
+Insert at cursor
+env
+Start the development servers
+
+Frontend:
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+Copy
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Insert at cursor
+bash
+Backend:
 
-**Use GitHub Codespaces**
+npm run server
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Copy
 
-## What technologies are used for this project?
+Insert at cursor
+bash
+📁 Project Structure
+purvanchal-sunbliss/
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/             # Shadcn UI components
+│   │   ├── Hero.tsx        # Hero section
+│   │   ├── About.tsx       # About section
+│   │   ├── Amenities.tsx   # Amenities showcase
+│   │   ├── Location.tsx    # Location section
+│   │   ├── Contact.tsx     # Contact section
+│   │   ├── QuickInquiry.tsx # Inquiry form
+│   │   └── WhatsAppFloat.tsx # WhatsApp button
+│   ├── assets/             # Images and static files
+│   ├── lib/                # Utility functions
+│   └── pages/              # Page components
+├── server/                 # Backend API
+│   ├── index.js           # Express server
+│   └── package.json       # Backend dependencies
+├── public/                # Static assets
+└── package.json           # Frontend dependencies
 
-This project is built with:
+Copy
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Insert at cursor
+🎨 Design System
+Primary Color: Deep sophisticated blue (#1e3a8a)
 
-## How can I deploy this project?
+Secondary Color: Warm golden (#d97706)
 
-Simply open [Lovable](https://lovable.dev/projects/8e2f4263-f253-4d16-89bb-2ec2e746ec5a) and click on Share -> Publish.
+Background: Light gold (#f5f3f0)
 
-## Can I connect a custom domain to my Lovable project?
+Typography: Playfair Display (serif) + Inter (sans-serif)
 
-Yes, you can!
+Gradients: Luxury-focused color combinations
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+📱 Key Components
+Hero Section
+Full-screen background image
+
+Call-to-action buttons
+
+Smooth scroll indicator
+
+Amenities
+Interactive grid layout
+
+Detailed view on click
+
+High-quality images
+
+Forms
+Quick Inquiry Form
+
+Schedule Visit Dialog
+
+Form validation with Zod
+
+Success/error notifications
+
+WhatsApp Integration
+Floating button (bottom-left)
+
+Pre-typed message
+
+Direct WhatsApp Web integration
+
+🌐 Deployment
+Frontend (Vercel)
+Connect GitHub repository
+
+Set environment variables
+
+Deploy with custom domain
+
+Backend (Render)
+Create web service
+
+Set root directory to server
+
+Configure environment variables
+
+Auto-deploy on git push
+
+Database (MongoDB Atlas)
+Create cluster
+
+Configure network access
+
+Create database user
+
+Get connection string
+
+📊 Environment Variables
+Frontend (.env.production)
+VITE_API_URL=https://sunbliss-project.onrender.com
+VITE_MONGODB_URI=mongodb+srv://...
+
+Copy
+
+Insert at cursor
+env
+Backend (Render Environment)
+MONGODB_URI=mongodb+srv://...
+NODE_ENV=production
+
+Copy
+
+Insert at cursor
+env
+🔧 Scripts
+# Development
+npm run dev          # Start frontend dev server
+npm run server       # Start backend server
+
+# Production
+npm run build        # Build frontend
+npm run preview      # Preview production build
+
+# Linting
+npm run lint         # Run ESLint
+
+Copy
+
+Insert at cursor
+bash
+📞 Contact Information
+Phone: +918377951951
+
+Email: mailto:Gainacre@gmail.com, mailto:info@gainacre.com
+
+Address: UG-30, Sethi Mart, Sector-150, Noida, UP-201301
+
+📄 License
+This project is proprietary and confidential. All rights reserved.
+
+🤝 Contributing
+This is a private project. For any modifications or updates, please contact the development team.
+
+Built with ❤️ for Purvanchal SunBlissect > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
