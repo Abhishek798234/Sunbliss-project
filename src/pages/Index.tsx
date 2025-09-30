@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Location } from "@/components/Location";
 import { Nature } from "@/components/Nature";
 import { Amenities } from "@/components/Amenities";
 import { Contact } from "@/components/Contact";
-import { QuickInquiry } from "@/components/QuickInquiry";
+
 import { Footer } from "@/components/Footer";
 import { ScheduleVisitDialog } from "@/components/ScheduleVisitDialog";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -28,13 +29,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Header onScheduleVisitClick={handleScheduleVisitClick} />
       <Hero onScheduleVisitClick={handleScheduleVisitClick} />
       <About />
       <Location />
       <Nature />
       <Amenities />
       <Contact onScheduleVisitClick={handleScheduleVisitClick} />
-      <QuickInquiry />
+
       <Footer />
       
       <ScheduleVisitDialog 

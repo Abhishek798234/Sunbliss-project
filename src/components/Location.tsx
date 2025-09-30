@@ -29,7 +29,7 @@ const locationFeatures = [
 export const Location = () => {
   const [isMapDialogOpen, setIsMapDialogOpen] = useState(false);
   return (
-    <section id="location" className="py-20 bg-muted/30">
+    <section id="location" className="py-20 bg-[#1B0C22]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">

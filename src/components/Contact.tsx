@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Phone, Mail, MapPin, Clock, FileText } from "lucide-react";
 
 const contactInfo = [
   {
@@ -34,6 +36,7 @@ interface ContactProps {
 }
 
 export const Contact: React.FC<ContactProps> = ({ onScheduleVisitClick }) => {
+  const [showBrochureDialog, setShowBrochureDialog] = useState(false);
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -84,12 +87,7 @@ export const Contact: React.FC<ContactProps> = ({ onScheduleVisitClick }) => {
               variant="golden" 
               size="xl" 
               className="font-medium"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/SunBliss Brochure.pdf';
-                link.download = 'SunBliss Brochure.pdf';
-                link.click();
-              }}
+              onClick={() => setShowBrochureDialog(true)}
             >
               Download Brochure
             </Button>
@@ -105,6 +103,46 @@ export const Contact: React.FC<ContactProps> = ({ onScheduleVisitClick }) => {
           </div>
         </div>
       </div>
+
+      <Dialog open={showBrochureDialog} onOpenChange={setShowBrochureDialog}>
+        <DialogContent className="sm:max-w-[425px] bg-background border-border">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-serif text-foreground text-center flex items-center justify-center gap-2">
+              <FileText className="w-6 h-6 text-secondary" />
+              Exclusive Brochure Available
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="text-center space-y-6 p-6">
+            <div className="w-20 h-20 mx-auto bg-gradient-golden rounded-full flex items-center justify-center">
+              <FileText className="w-10 h-10 text-secondary-foreground" />
+            </div>
+            
+            <div className="space-y-3">
+              <p className="text-muted-foreground leading-relaxed">
+                🌟 To access our detailed floor plans, premium amenities, and luxury features brochure, 
+                please schedule a site visit first! ✨
+              </p>
+            </div>
+
+            <Button 
+              onClick={() => {
+                setShowBrochureDialog(false);
+                onScheduleVisitClick?.();
+              }}
+              variant="golden" 
+              size="lg"
+              className="w-full font-medium flex items-center gap-2"
+            >
+              📅 Schedule Visit to Download
+            </Button>
+            
+            <p className="text-sm text-muted-foreground">
+              🎯 Schedule a visit to unlock the brochure download!
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/hero-image.png";
 import { ExploreResidencesDialog } from "./ExploreResidencesDialog";
 
 interface HeroProps {
@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleVisitClick }) => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-hero/80"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
       
       {/* Content */}
@@ -46,7 +46,8 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleVisitClick }) => {
 
       <ExploreResidencesDialog 
         open={isExploreDialogOpen} 
-        onOpenChange={setIsExploreDialogOpen} 
+        onOpenChange={setIsExploreDialogOpen}
+        onScheduleVisit={onScheduleVisitClick}
       />
 
       {/* Scroll Indicator */}

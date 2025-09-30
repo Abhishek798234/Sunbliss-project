@@ -2,7 +2,7 @@ import { Separator } from "@/components/ui/separator";
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-16">
+    <footer className="bg-[#1B0C22] text-white py-16">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}

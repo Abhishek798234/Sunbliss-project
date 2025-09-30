@@ -6,16 +6,10 @@ import { Download, Home, FileText } from "lucide-react";
 interface ExploreResidencesDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onScheduleVisit: () => void;
 }
 
-export const ExploreResidencesDialog: React.FC<ExploreResidencesDialogProps> = ({ open, onOpenChange }) => {
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/SunBliss Brochure.pdf';
-    link.download = 'SunBliss Brochure.pdf';
-    link.click();
-    onOpenChange(false);
-  };
+export const ExploreResidencesDialog: React.FC<ExploreResidencesDialogProps> = ({ open, onOpenChange, onScheduleVisit }) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -34,26 +28,28 @@ export const ExploreResidencesDialog: React.FC<ExploreResidencesDialogProps> = (
           
           <div className="space-y-3">
             <h3 className="text-xl font-semibold text-foreground">
-              📖 Download Our Exclusive Brochure
+              📖 Exclusive Brochure Available
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              🌟 Discover detailed floor plans, premium amenities, and luxury features of Purvanchal SunBliss. 
-              Get complete information about our residences! ✨
+              🌟 To access our detailed floor plans, premium amenities, and luxury features brochure, 
+              please schedule a site visit first! ✨
             </p>
           </div>
 
           <Button 
-            onClick={handleDownload}
+            onClick={() => {
+              onOpenChange(false);
+              onScheduleVisit();
+            }}
             variant="golden" 
             size="lg"
             className="w-full font-medium flex items-center gap-2"
           >
-            <Download className="w-5 h-5" />
-            📥 Download Brochure
+            📅 Schedule Visit to Download
           </Button>
           
           <p className="text-sm text-muted-foreground">
-            🎯 Everything you need to know about your dream home!
+            🎯 Schedule a visit to unlock the brochure download!
           </p>
         </div>
       </DialogContent>

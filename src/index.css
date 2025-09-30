@@ -15,30 +15,30 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Luxury Real Estate Design System - SunBliss */
-    --background: 32 43% 95%;
-    --foreground: 215 25% 17%;
+    --background: 285 50% 10%;
+    --foreground: 0 0% 95%;
 
-    --card: 32 43% 95%;
-    --card-foreground: 215 25% 17%;
+    --card: 285 50% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 32 43% 95%;
-    --popover-foreground: 215 25% 17%;
+    --popover: 285 50% 12%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Deep sophisticated blue inspired by evening sky */
-    --primary: 213 84% 20%;
-    --primary-foreground: 32 43% 95%;
-    --primary-glow: 213 70% 35%;
+    /* Deep sophisticated purple matching background theme */
+    --primary: 285 50% 25%;
+    --primary-foreground: 0 0% 95%;
+    --primary-glow: 285 40% 40%;
 
     /* Warm golden accents inspired by building lighting */
     --secondary: 32 95% 44%;
-    --secondary-foreground: 32 43% 95%;
+    --secondary-foreground: 0 0% 95%;
     --secondary-glow: 35 91% 65%;
 
     --muted: 215 20% 94%;
     --muted-foreground: 215 15% 45%;
 
     --accent: 32 95% 44%;
-    --accent-foreground: 32 43% 95%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -61,13 +61,13 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    --sidebar-background: 32 43% 95%;
+    --sidebar-background: 285 50% 10%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
 
     --sidebar-primary: 240 5.9% 10%;
 
-    --sidebar-primary-foreground: 32 43% 95%;
+    --sidebar-primary-foreground: 0 0% 95%;
 
     --sidebar-accent: 240 4.8% 95.9%;
 
@@ -134,5 +134,29 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Golden borders for cards */
+  .card {
+    @apply border border-secondary/30;
+  }
+
+  /* Enhanced golden borders for cards on hover */
+  .card:hover {
+    @apply border-secondary/60;
+  }
+
+  /* Golden underline only for header buttons */
+  header button {
+    @apply border-none border-b-2 border-b-secondary/60;
+  }
+
+  header button:hover {
+    @apply border-b-secondary/90;
+  }
+
+  /* Remove borders from footer buttons */
+  footer button {
+    @apply border-none;
   }
 }
