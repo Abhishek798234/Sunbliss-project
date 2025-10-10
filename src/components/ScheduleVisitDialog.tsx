@@ -45,6 +45,15 @@ export const ScheduleVisitDialog: React.FC<ScheduleVisitDialogProps> = ({ open, 
       });
       
       if (response.ok) {
+        // Google Ads conversion tracking
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17626339825/15NyCImd-acbEPGz8tRB',
+            'value': 1.0,
+            'currency': 'INR'
+          });
+        }
+        
         toast({
           title: "Request Submitted!",
           description: "Our expert will get back to you soon. Brochure download starting...",
