@@ -30,7 +30,7 @@ export const About = () => {
                   "3 BHK with Servant & Study Room", 
                   "3 BHK with Servant Room",
                   "3 BHK with 3 Toilets",
-                  "1 BHK"
+                  "1 RK"
                 ].map((config, index) => (
                   <Card key={index} className="p-4 border-l-4 border-l-secondary bg-card/50">
                     <p className="font-medium text-foreground">{config}</p>
