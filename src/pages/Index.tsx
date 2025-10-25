@@ -14,13 +14,37 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 const Index = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  // Show dialog automatically on page load
+  // Wake up backend and show dialog
   useEffect(() => {
+    // Wake up the backend server
+    const wakeUpBackend = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+        await fetch(`${apiUrl}/health`, { 
+          method: 'GET',
+          mode: 'cors'
+        });
+        console.log('Backend server is awake');
+      } catch (error) {
+        console.log('Backend wake-up call made');
+      }
+    };
+
+    wakeUpBackend();
+
+    // Keep backend alive with periodic pings
+    const keepAlive = setInterval(() => {
+      wakeUpBackend();
+    }, 10 * 60 * 1000); // Ping every 10 minutes
+
     const timer = setTimeout(() => {
       setIsDialogOpen(true);
     }, 0); // Show instantly
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      clearInterval(keepAlive);
+    };
   }, []);
 
   const handleScheduleVisitClick = () => {
